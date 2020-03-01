@@ -17,7 +17,7 @@ public class App
         return null;
     }
 
-    public Extension getExtensionFromFile(Path path){
+    public Extension getExtensionFromFile(String fileName){
         return null;
     }
 }
