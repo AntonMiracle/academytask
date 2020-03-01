@@ -21,6 +21,6 @@ public enum Extension {
 
     private Extension(int start, String name) {
         this.start = start;
-        this.name = name;
+        this.name = name.toLowerCase();
     }
 }
