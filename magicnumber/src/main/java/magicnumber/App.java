@@ -1,23 +1,26 @@
 package magicnumber;
 
-import java.nio.file.Path;
-
 /**
  * Hello world!
- *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
     }
 
-    public Extension getExtensionFromFileName(String fileName){
-        return null;
+    public MyExtension getExtensionFromFileName(String fileName) {
+        String extension = "";
+        int i = fileName.lastIndexOf('.');
+        if (i > 0) extension = fileName.substring(i + 1).toLowerCase();
+        if (extension.length() == 0) return MyExtension.UNKNOWN;
+        try {
+            return MyExtension.valueOf(extension.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return MyExtension.UNKNOWN;
+        }
     }
 
-    public Extension getExtensionFromFile(String fileName){
+    public MyExtension getExtensionFromFile(String fileName) {
         return null;
     }
 }

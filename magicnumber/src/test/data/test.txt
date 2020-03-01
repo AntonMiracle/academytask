@@ -1,0 +1,4 @@
+Some text in first line
+Another text in second line
+
+line after empty line
