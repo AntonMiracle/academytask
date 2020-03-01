@@ -1,7 +1,9 @@
 package magicnumber;
 
-public enum Extension {
-    JPG(0xFFD8FFE0, "jpg"), TXT(0x464F524D, "txt"), UNKNOWN(0, null);
+public enum MyExtension {
+    JPG(0xFFD8FFE0,
+            "jpg")
+    , TXT(0x464F524D, "txt"), UNKNOWN(0, "");
 
     private final int start;
     private final String name;
@@ -19,7 +21,7 @@ public enum Extension {
         return this.name;
     }
 
-    private Extension(int start, String name) {
+    MyExtension(int start, String name) {
         this.start = start;
         this.name = name.toLowerCase();
     }
