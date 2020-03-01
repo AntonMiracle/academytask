@@ -1,5 +1,10 @@
 package magicnumber;
 
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * Hello world!
  */
@@ -20,7 +25,12 @@ public class App {
         }
     }
 
-    public MyExtension getExtensionFromFile(String fileName) {
-        return null;
+    public MyExtension getExtensionFromFile(String fileName) throws IOException {
+        try (DataInputStream ins = new DataInputStream(new BufferedInputStream(new FileInputStream(fileName)))) {
+            for (MyExtension ex : MyExtension.values()) {
+                if (ex.getStart() == ins.readInt()) return ex;
+            }
+        }
+        return MyExtension.UNKNOWN;
     }
 }
